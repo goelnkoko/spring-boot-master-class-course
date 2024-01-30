@@ -1,5 +1,8 @@
 package com.springmasterclass.seller;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 public class Seller {
@@ -7,13 +10,16 @@ public class Seller {
     private final Long id;
     private final String name;
     private final String address;
+    private final String password;
 
-    public Seller(Long id, String name, String address) {
+    public Seller(Long id, String name, String address, String password) {
         this.id = id;
         this.name = name;
         this.address = address;
+        this.password = password;
     }
 
+    @JsonProperty("sellerId")
     public Long getId() {
         return id;
     }
@@ -24,6 +30,11 @@ public class Seller {
 
     public String getAddress() {
         return address;
+    }
+
+    @JsonIgnore
+    public String getPassword() {
+        return password;
     }
 
     @Override

@@ -9,14 +9,14 @@ public class SellerFakeRepository implements SellerRepo{
 
     @Override
     public Seller getSeller() {
-        return new Seller(1L, "Goel Nkoko", "Morro Bento");
+        return new Seller(1L, "Goel Nkoko", "Morro Bento", "123password");
     }
 
     @Override
     public List<Seller> getSellers() {
         return Arrays.asList(
-                new Seller(1L, "Goel Nkoko", "Morro Bento"),
-                new Seller(2L, "Nkembwa Nkumbo", "Kilamba Kiaxi")
+                new Seller(1L, "Goel Nkoko", "Morro Bento", "123password"),
+                new Seller(2L, "Nkembwa Nkumbo", "Kilamba Kiaxi", "123password")
         );
     }
 }
