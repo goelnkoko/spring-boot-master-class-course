@@ -9,6 +9,8 @@ public class Customer {
 
     private final Long id;
     private final String name;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private final String password;
 
     public Customer(Long id, String name, String password) {
@@ -36,6 +38,7 @@ public class Customer {
         return "Customer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 

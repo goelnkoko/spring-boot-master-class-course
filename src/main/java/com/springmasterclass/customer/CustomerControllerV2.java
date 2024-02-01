@@ -3,24 +3,28 @@ package com.springmasterclass.customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.SQLOutput;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/v1/customer")
-@Deprecated
-public class CustomerController {
+@RequestMapping(path = "api/v2/customers")
+public class CustomerControllerV2 {
 
     private final CustomerService customerService;
 
     @Autowired
-    public CustomerController(CustomerService customerService) {
+    public CustomerControllerV2(CustomerService customerService) {
         this.customerService = customerService;
     }
 
-    @GetMapping("customerId")
+    @GetMapping
     List<Customer> getCustomers(){
         return customerService.getCustomers();
+    }
+
+    @GetMapping(path = "/{customerId}")
+    Customer getCustomer(@PathVariable("customerId") Long id){
+        return customerService.getCustomer(id);
     }
 
     @PostMapping

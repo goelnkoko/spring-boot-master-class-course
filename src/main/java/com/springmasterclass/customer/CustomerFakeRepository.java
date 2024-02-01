@@ -16,4 +16,5 @@ public class CustomerFakeRepository implements CustomerRepo {
                 new Customer(3L, "Kamu Nkoko", "pass123word")
         );
     }
+
 }
