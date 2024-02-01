@@ -9,11 +9,6 @@ import java.util.List;
 public class SellerRepository implements SellerRepo{
 
     @Override
-    public Seller getSeller() {
-        return null;
-    }
-
-    @Override
     public List<Seller> getSellers() {
         return Collections.emptyList();
     }

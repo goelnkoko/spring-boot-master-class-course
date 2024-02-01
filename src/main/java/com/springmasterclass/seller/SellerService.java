@@ -15,8 +15,12 @@ public class SellerService {
         this.sellerRepo = sellerRepo;
     }
 
-    Seller getSeller(){
-        return sellerRepo.getSeller();
+    Seller getSeller(Long id){
+        return sellerRepo.getSellers()
+                .stream()
+                .filter(seller -> seller.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Seller not found"));
     }
 
     List<Seller> getSellers(){

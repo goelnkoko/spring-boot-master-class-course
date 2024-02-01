@@ -1,27 +1,29 @@
 package com.springmasterclass.seller;
 
-import com.springmasterclass.customer.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/sellers")
-@Deprecated
-public class SellerController {
+@RequestMapping("/api/v2/sellers")
+public class SellerControllerV2 {
 
     private final SellerService sellerService;
 
     @Autowired
-    public SellerController(SellerService sellerService) {
+    public SellerControllerV2(SellerService sellerService) {
         this.sellerService = sellerService;
     }
 
     @GetMapping
     List<Seller> getSellers(){
         return sellerService.getSellers();
+    }
+
+    @GetMapping(path = "/{customerId}")
+    Seller getSeller(@PathVariable("customerId") Long id){
+        return sellerService.getSeller(id);
     }
 
     @PostMapping
@@ -36,7 +38,7 @@ public class SellerController {
         System.out.println(seller);
     }
 
-    @DeleteMapping("/{customerId}")
+    @DeleteMapping(path = "/{customerId}")
     void deleteSeller(@PathVariable("customerId") Long id){
         System.out.println("DELETE REQUEST");
         System.out.println("Deleted seller with id " + id);

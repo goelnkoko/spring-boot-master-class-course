@@ -10,6 +10,8 @@ public class Seller {
     private final Long id;
     private final String name;
     private final String address;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private final String password;
 
     public Seller(Long id, String name, String address, String password) {
