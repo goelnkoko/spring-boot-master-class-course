@@ -1,5 +1,6 @@
 package com.springmasterclass.seller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +28,7 @@ public class SellerControllerV2 {
     }
 
     @PostMapping
-    void createNewSeller(@RequestBody Seller seller){
+    void createNewSeller(@Valid @RequestBody Seller seller){
         System.out.println("POST REQUEST");
         System.out.println(seller);
     }

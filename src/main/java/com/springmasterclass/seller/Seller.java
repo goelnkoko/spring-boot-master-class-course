@@ -2,23 +2,32 @@ package com.springmasterclass.seller;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.Objects;
 
 public class Seller {
 
     private final Long id;
-    private final String name;
-    private final String address;
 
+    @NotBlank(message = "field name must be not empty")
+    private final String name;
+    @NotBlank(message = "field address must be not empty")
+    private final String address;
+    @Email
+    @NotBlank(message = "field email must be not empty")
+    private final String email;
+    @NotBlank(message = "field password must be not empty")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private final String password;
 
-    public Seller(Long id, String name, String address, String password) {
+    Seller(Long id, String name, String address, String password, String email) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.password = password;
+        this.email = email;
     }
 
     @JsonProperty("sellerId")
@@ -37,6 +46,10 @@ public class Seller {
     @JsonIgnore
     public String getPassword() {
         return password;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     @Override

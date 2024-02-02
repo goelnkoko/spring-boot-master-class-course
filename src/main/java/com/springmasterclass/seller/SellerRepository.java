@@ -10,6 +10,9 @@ public class SellerRepository implements SellerRepo{
 
     @Override
     public List<Seller> getSellers() {
-        return Collections.emptyList();
+        //TODO. Connect with real db
+        return Collections.singletonList(
+                new Seller(1L, "TODO. Implement real db", "Sapu", "54637829", "goel@gmail.com")
+        );
     }
 }
