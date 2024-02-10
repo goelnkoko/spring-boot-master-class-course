@@ -1,0 +1,38 @@
+info:
+    app:
+        description: Master Spring Boot
+        name: Spring Boot Master Class Course
+        version: 1.0.0
+    company:
+        name: AmigosCode
+management:
+    endpoint:
+        env:
+            show-values: when_authorized
+        health:
+            show-details: always
+    endpoints:
+        web:
+            exposure:
+                include: health, info, prometheus
+    info:
+        env:
+            enabled: true
+server:
+    error:
+        include-binding-errors: always
+        include-message: always
+        include-stacktrace: on_param
+spring:
+    datasource:
+        driverClassName: org.h2.Driver
+        password: 'prod'
+        url: jdbc:h2:mem:testdb-prod
+        username: prod
+    h2:
+        console:
+            enabled: true
+            path: /h2-prod
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        show-sql: true
