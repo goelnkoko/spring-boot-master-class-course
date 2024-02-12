@@ -1,7 +1,6 @@
 package com.springmasterclass.customer;
 
 import com.springmasterclass.infoapp.InfoApp;
-import org.springframework.aop.scope.ScopedProxyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
