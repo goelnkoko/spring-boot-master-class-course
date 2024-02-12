@@ -2,6 +2,7 @@ package com.springmasterclass.customer;
 
 import com.springmasterclass.exception.ApiRequestException;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,14 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v2/customers")
+@AllArgsConstructor
 public class CustomerControllerV2 {
 
     private final CustomerService customerService;
-
-    @Autowired
-    public CustomerControllerV2(CustomerService customerService) {
-        this.customerService = customerService;
-    }
 
     @GetMapping
     List<Customer> getCustomers(){
@@ -33,7 +30,6 @@ public class CustomerControllerV2 {
     Customer getCustomerException(@PathVariable("customerId") Long id){
         throw new ApiRequestException("ApiRequestException for customer " + id);
     }
-
 
     @PostMapping
     void creasteNewCustomer(@Valid @RequestBody Customer customer){
